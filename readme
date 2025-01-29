@@ -16,7 +16,7 @@ CustomTkinter (customtkinter) – Modern GUI elements.
 Tkinter (tkinter) – Native GUI toolkit.
 Pillow (PIL) – Image handling for backgrounds.
 
-![application view](https://github.com/kamilczynski/PiranhaPix/blob/main/piranhapix.png?raw=true)
+![application view](https://raw.githubusercontent.com/kamilczynski/PiranhaPix/main/application%20view.png)
 
 piranhapix.py python code
 import cv2
