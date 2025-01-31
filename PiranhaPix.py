@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 import customtkinter as ctk
 
 
-# ---------------- FUNKCJA SKALOWANIA ----------------
+# ---------------- SCALING FUNCTION ----------------
 def resize_images(input_folder, output_folder, width, height):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -25,7 +25,7 @@ def resize_images(input_folder, output_folder, width, height):
     messagebox.showinfo("Ready", "Scaling images completed!")
 
 
-# ---------------- FUNKCJE GUI ----------------
+# ---------------- GUI FUNCTIONS ----------------
 def select_input_folder():
     folder = filedialog.askdirectory(title="Select input folder")
     input_entry.delete(0, tk.END)
@@ -48,7 +48,7 @@ def start_processing():
         messagebox.showerror("Error", "Select input and output folders")
         return
 
-    # Sprawdzenie, czy user nie zostawił pustego pola na wymiary
+    # Checking if the user has not left the dimensions field empty
     if not width or not height:
         messagebox.showerror("Error", "Specify the scaling width and height")
         return
@@ -63,7 +63,7 @@ def start_processing():
         messagebox.showerror("Error", f"There was a problem: {e}")
 
 
-# ---------------- KONFIGURACJA APLIKACJI ----------------
+# ---------------- APPLICATION CONFIGURATION ----------------
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
@@ -71,24 +71,24 @@ app = ctk.CTk()
 app.title("PiranhaPix")
 app.geometry("800x600")
 
-# Ustawienie ikony aplikacji
-app.iconbitmap(r"C:\Users\topgu\Desktop\Splotowe Sieci Neuronowe\piranha.ico")
+# Application Icon Setting
+app.iconbitmap(r"C:\SET YOUR ICONE.ico")
 
-# ---------------- WYGLĄD TŁA ----------------
-background_image = Image.open(r"C:\Users\topgu\Desktop\Splotowe Sieci Neuronowe\piranhapix.png")
+# ---------------- BACKGROUND APPEARANCE ----------------
+background_image = Image.open(r"C:\SET YOUR BACKGROUND.png")
 background_photo = ImageTk.PhotoImage(background_image)
 
 background_label = tk.Label(app, image=background_photo)
 background_label.place(relwidth=1, relheight=1)
 
-# Możesz dostosować czcionkę do swoich preferencji
+# You can customize the font to your preferences
 font = ("Orbitron", 14)
 
-# **Zwiększamy przesunięcie, żeby całość była niżej**:
-offset_y = 330  # Było 300, można zwiększyć do 330 lub więcej
+# **We increase the offset so that the whole thing is lower**:
+offset_y = 330  
 
-# ---------------- POLA TEKSTOWE + PRZYCISKI ----------------
-# Wpisy (Folder wejściowy / wyjściowy)
+# ---------------- TEXT FIELDS + BUTTONS ----------------
+# Entries (Input/Output Folder)
 input_entry = ctk.CTkEntry(
     master=app,
     width=300,
@@ -108,15 +108,15 @@ input_button = ctk.CTkButton(
     fg_color="#8A2BE2",
     text_color="white",
     hover_color="#7A1BBE",
-    corner_radius=0,          # większe zaokrąglenie
-    border_width=2,            # obramowanie
-    border_color="#7A1BBE",    # kolor obramowania zbliżony do hover
-    bg_color="transparent",    # żeby wyeliminować czarne tło w rogach
+    corner_radius=0,          # greater rounding
+    border_width=2,            # border
+    border_color="#7A1BBE",    # border color similar to hover
+    bg_color="transparent",    # to eliminate the black background in the corners
     font=("Orbitron", 14, "bold")
 )
 input_button.place(x=560, y=offset_y + 0)
 
-# Pole wyboru folderu wyjściowego
+# Output folder selection box
 output_entry = ctk.CTkEntry(
     master=app,
     width=300,
@@ -128,7 +128,7 @@ output_entry = ctk.CTkEntry(
 )
 output_entry.place(x=250, y=offset_y + 50)
 
-# Przycisk do wyboru folderu wyjściowego
+# Output folder selection button
 output_button = ctk.CTkButton(
     master=app,
     text="Select",
@@ -144,7 +144,7 @@ output_button = ctk.CTkButton(
 )
 output_button.place(x=560, y=offset_y + 50)
 
-# Pola szerokości i wysokości
+# Width and height fields
 width_entry = ctk.CTkEntry(
     master=app,
     width=100,
@@ -167,7 +167,7 @@ height_entry = ctk.CTkEntry(
 )
 height_entry.place(x=360, y=offset_y + 100)
 
-# Przycisk uruchamiający skalowanie
+# Button to start scaling
 start_button = ctk.CTkButton(
     master=app,
     text="Start scaling",
@@ -183,5 +183,5 @@ start_button = ctk.CTkButton(
 )
 start_button.place(x=250, y=offset_y + 150)
 
-# ---------------- URUCHOMIENIE APLIKACJI ----------------
+# ---------------- LAUNCHING THE APPLICATION ----------------
 app.mainloop()
