@@ -72,10 +72,10 @@ app.title("PiranhaPix")
 app.geometry("800x600")
 
 # Application Icon Setting
-app.iconbitmap(r"C:\SET YOUR ICONE.ico")
+app.iconbitmap(r"C:\piranha.ico")
 
 # ---------------- BACKGROUND APPEARANCE ----------------
-background_image = Image.open(r"C:\SET YOUR BACKGROUND.png")
+background_image = Image.open(r"C:\piranhapix.png")
 background_photo = ImageTk.PhotoImage(background_image)
 
 background_label = tk.Label(app, image=background_photo)
