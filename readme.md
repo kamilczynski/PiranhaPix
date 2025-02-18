@@ -1,4 +1,4 @@
-# PiranhaPix - Image Scaling Application, Perfect for preparing training data
+# 🐟 PiranhaPix - Image Scaling Application, Perfect for preparing training data
 
 ## Project Description
 PiranhaPix is a GUI-based Python application that allows users to resize images in bulk...
