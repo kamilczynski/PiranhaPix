@@ -6,14 +6,14 @@ from PIL import Image, ImageTk
 import customtkinter as ctk
 
 
-# ---------------- SCALING FUNCTION ----------------
+# ---------------- APPLICATION CONFIGURATION ----------------
 def resize_images(input_folder, output_folder, width, height):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
     for filename in os.listdir(input_folder):
         input_path = os.path.join(input_folder, filename)
-        if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.tiff')):
+        if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.tif', '.tiff')):
             image = cv2.imread(input_path)
             if image is None:
                 continue
@@ -25,7 +25,7 @@ def resize_images(input_folder, output_folder, width, height):
     messagebox.showinfo("Ready", "Scaling images completed!")
 
 
-# ---------------- GUI FUNCTIONS ----------------
+# ---------------- BACKGROUND APPEARANCE ----------------
 def select_input_folder():
     folder = filedialog.askdirectory(title="Select input folder")
     input_entry.delete(0, tk.END)
@@ -48,7 +48,7 @@ def start_processing():
         messagebox.showerror("Error", "Select input and output folders")
         return
 
-    # Checking if the user has not left the dimensions field empty
+
     if not width or not height:
         messagebox.showerror("Error", "Specify the scaling width and height")
         return
@@ -72,23 +72,23 @@ app.title("PiranhaPix")
 app.geometry("800x600")
 
 # Application Icon Setting
-app.iconbitmap(r"C:\piranha.ico")
+app.iconbitmap(r"C:\Users\topgu\Desktop\Splotowe Sieci Neuronowe\piranha.ico")
 
 # ---------------- BACKGROUND APPEARANCE ----------------
-background_image = Image.open(r"C:\piranhapix.png")
+background_image = Image.open(r"C:\Users\topgu\Desktop\Splotowe Sieci Neuronowe\piranhapix.png")
 background_photo = ImageTk.PhotoImage(background_image)
 
 background_label = tk.Label(app, image=background_photo)
 background_label.place(relwidth=1, relheight=1)
 
-# You can customize the font to your preferences
+
 font = ("Orbitron", 14)
 
-# **We increase the offset so that the whole thing is lower**:
-offset_y = 330  
+
+offset_y = 330
 
 # ---------------- TEXT FIELDS + BUTTONS ----------------
-# Entries (Input/Output Folder)
+# Entries (Input/Output Folder
 input_entry = ctk.CTkEntry(
     master=app,
     width=300,
@@ -100,7 +100,7 @@ input_entry = ctk.CTkEntry(
 )
 input_entry.place(x=250, y=offset_y + 0)
 
-# Przycisk do wyboru folderu wejściowego
+# Input folder selection button
 input_button = ctk.CTkButton(
     master=app,
     text="Select",
@@ -108,10 +108,10 @@ input_button = ctk.CTkButton(
     fg_color="#8A2BE2",
     text_color="white",
     hover_color="#7A1BBE",
-    corner_radius=0,          # greater rounding
-    border_width=2,            # border
-    border_color="#7A1BBE",    # border color similar to hover
-    bg_color="transparent",    # to eliminate the black background in the corners
+    corner_radius=0,
+    border_width=2,
+    border_color="#7A1BBE",
+    bg_color="transparent",
     font=("Orbitron", 14, "bold")
 )
 input_button.place(x=560, y=offset_y + 0)
